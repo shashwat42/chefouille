@@ -4,7 +4,7 @@ export default function Header() {
     return (
         <article className='header'>
             <img src={chef} alt='chefIcon'></img>
-            <h3>Chef Claude</h3>
+            <h3>Chefouille</h3>
         </article>
     )
 }
