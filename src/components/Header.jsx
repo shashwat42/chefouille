@@ -1,0 +1,10 @@
+import chef from '../assets/chef-claude-icon.png'
+
+export default function Header() {
+    return (
+        <article className='Header'>
+            <img src={chef} alt='chefIcon'></img>
+            <h3>Chef Claude</h3>
+        </article>
+    )
+}

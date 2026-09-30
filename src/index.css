@@ -1,0 +1,24 @@
+body {
+  margin: 0;
+  background: white;
+  font-family: Inter, sans-serif;
+  background-color: #FAFAF8;
+}
+
+.Header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 11px;
+  height: 80px;
+  background-color: white;
+}
+
+.Header>img {
+  width: 40px;
+}
+
+.Header>h3 {
+  font-size: 2rem;
+  font-weight: 400;
+}
