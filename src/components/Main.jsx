@@ -2,20 +2,18 @@ import React from 'react'
 export default function Main() {
     const [ingredients, setIngredients] = React.useState([])
 
-    const newArray = ingredients.map(data => (
+    const ingredientsArray = ingredients.map(data => (
         <li key={data}> {data} </li>
     ))
-    const onSubmitHandler = (event) => {
-        event.preventDefault()
-        const formData = new FormData(event.currentTarget)
+    const addIngredient = (formData) => {
         const newIngredient = formData.get("ingredient")
-
         setIngredients(prevIngredients => [...prevIngredients, newIngredient])
         console.log(ingredients)
+
     }
 
     return (<main>
-        <form onSubmit={onSubmitHandler} className="add-ingredient-form">
+        <form action={addIngredient} className="add-ingredient-form">
             <input aria-label="Add ingredient"
                 type="text"
                 placeholder="Oregano"
@@ -23,8 +21,16 @@ export default function Main() {
             />
             <button>Add ingredient</button>
         </form>
-        <ul>
-            {newArray}
-        </ul>
+        {ingredients.length > 0 && <section>
+            <h2>Ingredients on hand: </h2>
+            <ul className="ingredients-list" aria-live="polite">{ingredientsArray}</ul>
+            {ingredients.length >= 4 && <div className="get-recipe-container">
+                <div>
+                    <h3>Ready for a recipe?</h3>
+                    <p>Generate a recipe from you list</p>
+                </div>
+                <button>Generate</button>
+            </div>}
+        </section>}
     </main>)
 }
